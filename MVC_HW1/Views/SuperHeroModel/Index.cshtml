@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVC_HW1.Models.SuperHeroModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SuperHeroName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuperHeroFlightSpeed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuperHeroStrenghtLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuperHeroAlignment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuperHeroName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuperHeroFlightSpeed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuperHeroStrenghtLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuperHeroAlignment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SuperHeroID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SuperHeroID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SuperHeroID })
+        </td>
+    </tr>
+}
+
+</table>
